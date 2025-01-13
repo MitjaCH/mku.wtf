@@ -1,0 +1,10 @@
+<div class="tool-grid">
+    <div *ngFor="let tool of tools" class="tool-card">
+      <h3>{{ tool.name }}</h3>
+      <p>{{ tool.description }}</p>
+      <a [routerLink]="tool.link">
+        <button>Go to Tool</button>
+      </a>
+    </div>
+  </div>
+  

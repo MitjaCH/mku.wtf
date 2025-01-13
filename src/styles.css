@@ -1,1 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --background-color: #0d1117;
+    --foreground-color: #161b22;
+    --primary-color: #0070f3;
+    --primary-hover-color: #0053a6;
+    --border-color: #30363d;
+    --text-color: #c9d1d9;
+    --text-muted: #8b949e;
+    --font-family: 'Inter', sans-serif;
+    --transition-duration: 0.25s;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-duration);
+  }
+  
+  a:hover {
+    color: var(--primary-hover-color);
+  }
+  
+  button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-duration);
+  }
+  
+  button:hover {
+    background-color: var(--primary-hover-color);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  
