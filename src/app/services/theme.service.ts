@@ -1,32 +1,57 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
   private readonly themeKey = 'app-theme';
 
-  constructor() { }
+  constructor() {
+    this.loadTheme();
+  }
 
-  setTheme(isDarkTheme: boolean): void {
-    if (isDarkTheme) {
-      document.body.classList.add('dark');
+  setTheme(isDark: boolean): void {
+    if (isDark) {
       localStorage.setItem(this.themeKey, 'dark');
     } else {
-      document.body.classList.remove('dark');
       localStorage.setItem(this.themeKey, 'light');
     }
+    this.applyTheme();
   }
 
   loadTheme(): void {
-    const savedTheme = localStorage.getItem(this.themeKey) || 'light';
-    if (savedTheme === 'dark') {
-      document.body.classList.add('dark');
+    const userPreference = localStorage.getItem(this.themeKey);
+    if (!userPreference) {
+      this.applySystemPreference();
+      this.applyTheme();
     }
   }
 
   toggleTheme(): void {
-    const isDarkTheme = document.body.classList.contains('dark');
-    this.setTheme(!isDarkTheme);
+    const currentPreference = localStorage.getItem(this.themeKey);
+    const isDark = currentPreference === 'dark';
+    this.setTheme(!isDark);
+  }
+
+  private applyTheme(): void {
+    const savedTheme = localStorage.getItem(this.themeKey) || 'light';
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }
+
+  private applySystemPreference(): void {
+    const prefersDark = window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    ).matches;
+    if (prefersDark) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem(this.themeKey, 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem(this.themeKey, 'light');
+    }
   }
 }
