@@ -1,11 +1,29 @@
-<nav class="navbar">
-    <div class="container">
-      <a routerLink="/" class="brand">mku.wtf</a>
-      <ul class="navbar-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="https://github.com/MitjaCH/mku.wtf" target="_blank">GitHub</a></li>
-      </ul>
+<nav class="bg-white dark:bg-gray-900 shadow dark:shadow-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <div class="flex">
+        <div class="flex-shrink-0 flex items-center">
+          <img class="h-8 w-auto" src="https://via.placeholder.com/150x50.png?text=Logo" alt="Logo">
+        </div>
+        <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+          <a routerLink="/" routerLinkActive="border-indigo-500 text-black dark:text-white" [routerLinkActiveOptions]="{exact: true}"
+             class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-300 dark:border-gray-800 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            Home
+          </a>
+          <a routerLink="/about" routerLinkActive="border-indigo-500 text-black dark:text-white"
+             class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-300 dark:border-gray-800 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            About
+          </a>
+          <a routerLink="/services" routerLinkActive="border-indigo-500 text-black dark:text-white"
+             class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-300 dark:border-gray-800 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            Services
+          </a>
+          <a routerLink="/contact" routerLinkActive="border-indigo-500 text-black dark:text-white"
+             class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-300 dark:border-gray-800 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            Contact
+          </a>
+        </div>
+      </div>
     </div>
-  </nav>
-  
+  </div>
+</nav>
