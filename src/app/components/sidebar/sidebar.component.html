@@ -1,15 +1,69 @@
-<div class="h-screen w-64 bg-[#0D0D0D] text-white flex flex-col p-6 shadow-lg">
-    <h2 class="text-lg font-bold text-center mb-4">Dashboard</h2>
+<aside class="h-screen w-64 bg-gray-900 text-white fixed top-0 left-0 p-4 flex flex-col">
+  <!-- User Profile Section -->
+  <div class="flex items-center space-x-3 p-3 rounded-lg bg-gray-800">
+    <!-- User Avatar -->
+    <div class="relative w-10 h-10">
+      <img [src]="user.avatarUrl" class="w-10 h-10 rounded-full border border-gray-700" ubAvatarImage />
+      <span ubAvatarFallback class="absolute inset-0 flex items-center justify-center text-sm font-medium bg-gray-700 text-white rounded-full">
+        {{ user.name.charAt(0) }}
+      </span>
+    </div>
+    
+    <!-- User Info -->
+    <div class="flex-1">
+      <p class="text-sm font-semibold">{{ user.name }}</p>
+      <p class="text-xs text-gray-400">Online</p>
+    </div>
 
-    <nav class="space-y-4">
-        <a routerLink="/utilities" class="block px-4 py-3 rounded-lg bg-[#181818] hover:bg-[#222] transition">
-            🔧 Utilities
+    <!-- Settings Icon -->
+    <button class="p-2 rounded-lg hover:bg-gray-700 transition" (click)="toggleSettings()">
+      <svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M12 6v12m6-6H6"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Navigation Links -->
+  <nav class="mt-6 flex-1">
+    <ul class="space-y-2">
+      <li>
+        <a routerLink="/dashboard" routerLinkActive="bg-gray-700"
+          class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition">
+          <span class="ml-2">Dashboard</span>
         </a>
-        <a routerLink="/settings" class="block px-4 py-3 rounded-lg bg-[#181818] hover:bg-[#222] transition">
-            ⚙️ Settings
+      </li>
+      <li>
+        <a routerLink="/projects" routerLinkActive="bg-gray-700"
+          class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition">
+          <span class="ml-2">Projects</span>
         </a>
-        <a routerLink="/account" class="block px-4 py-3 rounded-lg bg-[#181818] hover:bg-[#222] transition">
-            👤 Account
+      </li>
+      <li>
+        <a routerLink="/settings" routerLinkActive="bg-gray-700"
+          class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition">
+          <span class="ml-2">Settings</span>
         </a>
-    </nav>
-</div>
+      </li>
+      <li>
+        <a routerLink="/profile" routerLinkActive="bg-gray-700"
+          class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition">
+          <span class="ml-2">Profile</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Settings Dropdown (Hidden by Default) -->
+  <div *ngIf="settingsOpen" class="absolute bottom-4 left-4 bg-gray-800 p-3 rounded-lg shadow-md w-56">
+    <ul class="space-y-2">
+      <li>
+        <a routerLink="/account" class="block p-2 rounded hover:bg-gray-700 transition">Account</a>
+      </li>
+      <li>
+        <a routerLink="/logout" class="block p-2 rounded hover:bg-gray-700 transition">Logout</a>
+      </li>
+    </ul>
+  </div>
+</aside>

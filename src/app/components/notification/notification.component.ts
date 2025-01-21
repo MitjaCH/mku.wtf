@@ -1,10 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { UbAlertDirective, UbAlertDescriptionDirective, UbAlertTitleDirective } from '@/components/ui/alert';
+import { UbAlertDirective, UbAlertTitleDirective } from '@/components/ui/alert';
 import { NotificationService, Notification } from '@/app/services/notification.service';
 
 @Component({
   selector: 'app-notification',
-  imports: [UbAlertDescriptionDirective, UbAlertTitleDirective, UbAlertDirective],
+  imports: [UbAlertTitleDirective, UbAlertDirective],
   templateUrl: './notification.component.html',
   styleUrl: './notification.component.css'
 })

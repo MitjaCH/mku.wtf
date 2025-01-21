@@ -1,12 +1,19 @@
 import { Component } from '@angular/core';
-import { SidebarComponent } from '@/app/components/sidebar/sidebar.component';
-import { RouterModule } from '@angular/router';
-
 @Component({
   selector: 'app-dashboard',
-  standalone: true,
-  imports: [SidebarComponent, RouterModule],
+  imports: [],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent { }
+export class DashboardComponent {
+  user = {
+    name: 'John Doe',
+    avatarUrl: 'https://api.dicebear.com/7.x/initials/svg?seed=John+Doe'
+  };
+
+  settingsOpen = false;
+
+  toggleSettings() {
+    this.settingsOpen = !this.settingsOpen;
+  }
+}
