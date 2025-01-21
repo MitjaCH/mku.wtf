@@ -1,16 +1,6 @@
 @if (notification) {
-    <div class="fixed top-4 right-4 w-80 p-4 rounded-md shadow-lg text-white transition-all duration-300"
-  [ngClass]="{
-    'bg-green-600': notification.type === 'success',
-    'bg-red-600': notification.type === 'error',
-    'bg-yellow-600': notification.type === 'warning',
-    'bg-blue-600': notification.type === 'info'
-  }">
-  
-  <div class="flex justify-between items-center">
-    <span class="font-semibold">{{ notification.message }}</span>
-    <button (click)="notification = null" class="ml-4 text-white hover:text-gray-300">✖</button>
-  </div>
-</div>
-
+    <div ubAlert [class]="'alert-' + notification.type"  class="notification-container">
+        <h5 ubAlertTitle>{{ notification.type }}</h5>
+        <p ubAlertDescription>{{ notification.message }}</p>
+    </div>
 }

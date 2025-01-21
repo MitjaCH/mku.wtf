@@ -13,7 +13,7 @@ export const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  { path: 'dashboard', component: DashboardComponent},
   { path: 'us/:shortcode', component: RedirectComponent },
   { path: 'us', component: UsComponent, canActivate: [AuthGuard] },
 ];

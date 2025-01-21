@@ -1,16 +1,15 @@
-<div class="w-64 h-screen bg-gray-800 text-white">
-    <div class="p-4">
-      <h2 class="text-2xl font-bold">Dashboard</h2>
-    </div>
-    <nav class="mt-10">
-      <a routerLink="/" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
-        Home
-      </a>
-      <a routerLink="/analytics" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
-        Analytics
-      </a>
-      <a routerLink="/settings" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
-        Settings
-      </a>
+<div class="h-screen w-64 bg-[#0D0D0D] text-white flex flex-col p-6 shadow-lg">
+    <h2 class="text-lg font-bold text-center mb-4">Dashboard</h2>
+
+    <nav class="space-y-4">
+        <a routerLink="/utilities" class="block px-4 py-3 rounded-lg bg-[#181818] hover:bg-[#222] transition">
+            🔧 Utilities
+        </a>
+        <a routerLink="/settings" class="block px-4 py-3 rounded-lg bg-[#181818] hover:bg-[#222] transition">
+            ⚙️ Settings
+        </a>
+        <a routerLink="/account" class="block px-4 py-3 rounded-lg bg-[#181818] hover:bg-[#222] transition">
+            👤 Account
+        </a>
     </nav>
 </div>

@@ -1,10 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { UbAlertDirective, UbAlertDescriptionDirective, UbAlertTitleDirective } from '@/components/ui/alert';
 import { NotificationService, Notification } from '@/app/services/notification.service';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-notification',
-  imports: [NgClass],
+  imports: [UbAlertDescriptionDirective, UbAlertTitleDirective, UbAlertDirective],
   templateUrl: './notification.component.html',
   styleUrl: './notification.component.css'
 })
@@ -13,8 +13,6 @@ export class NotificationComponent implements OnInit {
   private notificationService = inject(NotificationService);
 
   ngOnInit(): void {
-    this.notificationService.notification$.subscribe((notif) => {
-      this.notification = notif;
-    })
+    this.notificationService.notification$.subscribe(n => this.notification = n);
   }
 }
