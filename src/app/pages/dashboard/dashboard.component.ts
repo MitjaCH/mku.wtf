@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
+import { SidebarComponent } from '@/app/components/sidebar/sidebar.component';
+import { ApiComponent } from '../tabs/api/api.component';
+
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [SidebarComponent, ApiComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
-  user = {
-    name: 'John Doe',
-    avatarUrl: 'https://api.dicebear.com/7.x/initials/svg?seed=John+Doe'
-  };
+  selectedTab: string = 'home';
 
-  settingsOpen = false;
-
-  toggleSettings() {
-    this.settingsOpen = !this.settingsOpen;
+  setTab(tab: string) {
+    this.selectedTab = tab;
   }
+
 }

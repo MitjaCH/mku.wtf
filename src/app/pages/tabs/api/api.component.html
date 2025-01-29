@@ -1,0 +1,84 @@
+<div class="bg-[#121212] text-white p-6 rounded-xl shadow-xl max-w-2xl mx-auto space-y-6">
+  
+    <!-- Header -->
+    <h2 class="text-3xl font-semibold tracking-tight">🔗 API Management</h2>
+    <p class="text-gray-400 text-sm">
+      The API provides a variety of free-to-use utilities such as QR code generation, image processing, and more. 
+      You can manage your API keys, track usage, and access the documentation below.
+    </p>
+  
+    <!-- Tab Navigation -->
+    <div class="flex space-x-4 border-b border-gray-700 pb-2">
+      <button (click)="switchTab('settings')" 
+              class="px-4 py-2 text-sm font-semibold rounded-md"
+              [class.bg-gray-800]="activeTab === 'settings'">
+        ⚙️ API Settings
+      </button>
+      <button (click)="switchTab('docs')" 
+              class="px-4 py-2 text-sm font-semibold rounded-md"
+              [class.bg-gray-800]="activeTab === 'docs'">
+        📖 API Documentation
+      </button>
+    </div>
+  
+    <!-- Skeleton Loader -->
+    @if (isLoading) {
+      <div class="animate-pulse space-y-4">
+        <div class="h-10 bg-gray-700 rounded-md"></div>
+        <div class="h-6 bg-gray-700 rounded-md w-2/3"></div>
+        <div class="h-6 bg-gray-700 rounded-md w-1/2"></div>
+      </div>
+    } @else {
+      
+      <!-- API Settings -->
+      @if (activeTab === 'settings') {
+        <div class="bg-[#1A1A1A] p-5 rounded-lg shadow-md space-y-4">
+          
+          <!-- Generate API Key -->
+          <button (click)="generateApiKey()" 
+                  class="bg-green-600 px-4 py-2 rounded-md text-sm font-semibold">
+            ➕ Generate New API Key
+          </button>
+  
+          <!-- API Keys List -->
+          <div class="space-y-4">
+            @for (key of apiKeys; track key.id) {
+              <div class="p-4 bg-gray-800 rounded-md">
+                <div class="flex justify-between items-center">
+                  <p class="text-sm text-gray-300">{{ key.key }}</p>
+                  <button (click)="revokeApiKey(key.id)" 
+                          class="bg-red-600 px-2 py-1 text-xs rounded-md">
+                    ❌ Revoke
+                  </button>
+                </div>
+                <p class="text-xs text-gray-400 mt-1">
+                  Created: {{ key.createdAt | date:'short' }} | Used: {{ key.usage }} / {{ apiLimit }}
+                </p>
+              </div>
+            }
+          </div>
+        </div>
+      }
+  
+      <!-- API Documentation -->
+      @if (activeTab === 'docs') {
+        <div class="bg-[#1A1A1A] p-5 rounded-lg shadow-md">
+          <h3 class="text-lg font-semibold">📌 Getting Started</h3>
+          <p class="text-gray-400 text-sm mt-1">
+            Use the API by sending a GET request to:
+          </p>
+          <code class="block mt-2 bg-gray-900 p-2 rounded-md text-sm text-blue-300">
+            GET /api/generate-qr?text=HelloWorld
+          </code>
+  
+          <h3 class="text-lg font-semibold mt-4">🛠️ Available Endpoints</h3>
+          <ul class="list-disc pl-5 text-gray-400 text-sm space-y-1">
+            <li><code>/api/generate-qr?text=...</code> - Generate a QR code.</li>
+            <li><code>/api/shorten-url?url=...</code> - Shorten a URL.</li>
+            <li><code>/api/convert-image?format=png</code> - Convert image formats.</li>
+          </ul>
+        </div>
+      }
+    }
+  </div>
+  
