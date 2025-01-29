@@ -1,7 +1,11 @@
-<div class="flex items-center justify-center min-h-screen bg-black text-white">
-    <main class="content flex-grow">
+<div class="flex flex-col items-center justify-center min-h-screen bg-black text-white">
+  <!-- Warning Banner -->
+  <div class="w-full bg-red-600 text-white text-center py-2">
+      ⚠️ This web app is under development. Some features may not work or are not implemented yet.
+  </div>
+
+  <main class="content flex-grow w-full">
       <app-notification></app-notification>
       <router-outlet></router-outlet>
-    </main>
+  </main>
 </div>
-  

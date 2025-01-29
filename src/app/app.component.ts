@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
@@ -16,6 +16,7 @@ export class AppComponent {
   private hiddenRoutes = ['/dashboard', '/login', '/register'];
 
   constructor(private router: Router) {
+
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {
