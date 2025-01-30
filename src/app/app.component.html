@@ -1,11 +1,16 @@
-<div class="flex flex-col items-center justify-center min-h-screen bg-black text-white">
-  <!-- Warning Banner -->
-  <div class="w-full bg-red-600 text-white text-center py-2">
-      ⚠️ This web app is under development. Some features may not work or are not implemented yet.
+<div
+  class="flex flex-col items-center justify-center min-h-screen bg-black text-white"
+>
+  <!-- Fixed Warning Banner -->
+  @if (warningMessage != null) {
+  <div
+    class="fixed top-0 left-0 w-full bg-red-600 text-white text-center py-2 z-50"
+  >
+    {{ warningMessage }}
   </div>
-
-  <main class="content flex-grow w-full">
-      <app-notification></app-notification>
-      <router-outlet></router-outlet>
+  }
+  <main [ngClass]="{'mt-10': warningMessage != null}" class="content flex-grow w-full">
+    <app-notification></app-notification>
+    <router-outlet></router-outlet>
   </main>
 </div>
