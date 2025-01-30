@@ -1,55 +1,115 @@
-<div class="h-screen w-[100px] bg-[#0D0D0D] text-white flex flex-col items-center py-6 shadow-lg justify-between">
+<div
+  class="h-screen w-[100px] bg-[#0D0D0D] text-white flex flex-col items-center py-6 shadow-lg justify-between"
+>
   <!-- Sidebar Options -->
   <nav class="flex flex-col space-y-6">
-    <button (click)="changeTab('home')" class="flex flex-col items-center text-gray-400 hover:text-white transition">
-      <img src="assets/icons/grid.svg" class="w-6 h-6 filter invert" alt="Home Icon" />
-      <span class="text-xs mt-1">Home</span>
-    </button>
+    <div
+      class="w-16 h-16 flex items-center justify-center cursor-pointer transition hover:bg-[#1A1A1A] rounded-lg"
+    >
+      <button
+        (click)="changeTab('home')"
+        class="flex flex-col items-center text-gray-400 hover:text-white transition"
+      >
+        <img
+          src="assets/icons/grid.svg"
+          class="w-6 h-6 filter invert"
+          alt="Home Icon"
+        />
+        <span class="text-xs mt-1">Home</span>
+      </button>
+    </div>
+    <div
+      class="w-16 h-16 flex items-center justify-center cursor-pointer transition hover:bg-[#1A1A1A] rounded-lg"
+    >
+      <button
+        (click)="changeTab('utilities')"
+        class="flex flex-col items-center text-gray-400 hover:text-white transition"
+      >
+        <img
+          src="assets/icons/utility.svg"
+          class="w-6 h-6 filter invert"
+          alt="Utilities Icon"
+        />
+        <span class="text-xs mt-1">Utilities</span>
+      </button>
+    </div>
+    <div
+      class="w-16 h-16 flex items-center justify-center cursor-pointer transition hover:bg-[#1A1A1A] rounded-lg"
+    >
+      <button
+        (click)="changeTab('api')"
+        class="flex flex-col items-center text-gray-400 hover:text-white transition"
+      >
+        <img
+          src="assets/icons/api.svg"
+          class="w-6 h-6 filter invert"
+          alt="API Icon"
+        />
+        <span class="text-xs mt-1">API</span>
+      </button>
+    </div>
 
-    <button (click)="changeTab('utilities')" class="flex flex-col items-center text-gray-400 hover:text-white transition">
-      <img src="assets/icons/utility.svg" class="w-6 h-6 filter invert" alt="Utilities Icon" />
-      <span class="text-xs mt-1">Utilities</span>
-    </button>
-
-    <button (click)="changeTab('api')" class="flex flex-col items-center text-gray-400 hover:text-white transition">
-      <img src="assets/icons/api.svg" class="w-6 h-6 filter invert" alt="API Icon" />
-      <span class="text-xs mt-1">API</span>
-    </button>
-
-    <button (click)="changeTab('docs')" class="flex flex-col items-center text-gray-400 hover:text-white transition">
-      <img src="assets/icons/docs.svg" class="w-6 h-6 filter invert" alt="Docs Icon" />
-      <span class="text-xs mt-1">Docs</span>
-    </button>
+    <div
+      class="w-16 h-16 flex items-center justify-center cursor-pointer transition hover:bg-[#1A1A1A] rounded-lg"
+    >
+      <button
+        (click)="changeTab('docs')"
+        class="flex flex-col items-center text-gray-400 hover:text-white transition"
+      >
+        <img
+          src="assets/icons/docs.svg"
+          class="w-6 h-6 filter invert"
+          alt="Docs Icon"
+        />
+        <span class="text-xs mt-1">Docs</span>
+      </button>
+    </div>
   </nav>
 
   <!-- User Avatar with Dropdown -->
   <div class="relative mb-6">
     <!-- Avatar -->
-    <div 
+    <div
       class="w-16 h-16 flex items-center justify-center cursor-pointer transition hover:bg-[#1A1A1A] rounded-lg"
       (click)="toggleSettings()"
-      #avatarRef>
-      <img [src]="user.avatarUrl" alt="User" class="w-10 h-10 rounded-full">
+      #avatarRef
+    >
+      <img [src]="user.avatarUrl" alt="User" class="w-10 h-10 rounded-full" />
     </div>
 
     <!-- Dropdown Menu -->
     @if (settingsOpen) {
-      <div class="absolute bottom-[70px] left-0 w-56 bg-[#1A1A1A] shadow-lg rounded-lg text-sm p-4 z-50 flex flex-col items-center space-y-3" #dropdownRef>
-        <!-- Enlarged Avatar -->
-        <img [src]="user.avatarUrl" alt="User" class="w-14 h-14 rounded-full border border-gray-600">
+    <div
+      class="absolute bottom-[70px] left-0 w-56 bg-[#1A1A1A] shadow-lg rounded-lg text-sm p-4 z-50 flex flex-col items-center space-y-3"
+      #dropdownRef
+    >
+      <!-- Enlarged Avatar -->
+      <img
+        [src]="user.avatarUrl"
+        alt="User"
+        class="w-14 h-14 rounded-full border border-gray-600"
+      />
 
-        <!-- User Info -->
-        <div class="text-center">
-          <p class="text-white font-semibold">{{ user.name }}</p>
-          <p class="text-gray-400 text-xs">{{ user.email }}</p>
-        </div>
-
-        <!-- Options -->
-        <div class="w-full flex flex-col">
-          <button class="w-full text-left px-3 py-2 hover:bg-[#333] rounded-md transition">Settings</button>
-          <button class="w-full text-left px-3 py-2 hover:bg-[#333] rounded-md transition">Logout</button>
-        </div>
+      <!-- User Info -->
+      <div class="text-center">
+        <p class="text-white font-semibold">{{ user.name }}</p>
+        <p class="text-gray-400 text-xs">{{ user.email }}</p>
       </div>
+
+      <!-- Options -->
+      <div class="w-full flex flex-col">
+        <button
+          class="w-full text-left px-3 py-2 hover:bg-[#333] rounded-md transition"
+        >
+          Settings
+        </button>
+        <button
+          class="w-full text-left px-3 py-2 hover:bg-[#333] rounded-md transition"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
     }
   </div>
 </div>
